@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./public/css/styles.css">
+  <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+  <title>Jogo</title>
+</head>
+<body>
+
+  <div class="container animeLeft">
+    <div class="mainContainer ">
+    <div class="center border">
+      <p class="title tempo">00:00:40 </p>
+      <button class="icon-play"><i class="fas fa-play fa-lg btn-play"></i></button>
+    </div>
+    </div>
+    
+    <div class="mainContainer"></div>
+      <img class="spinner" src="./public/img/spinner.gif" alt="spinner">
+    </div>
+
+    <div class="mainContainer info"></div>
+    <div class="mainContainer">
+      <p class="question"></p>
+    </div>
+    <div class="mainContainer">
+      <div class="answers">
+        <ul class="answers-obj">
+          <!-- <li class="answers-item">sort</li>
+          <li class="answers-item">top</li> -->
+          <li class="answers-item">sort</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+  <script  src="https://kit.fontawesome.com/3931c7733f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script src="./public/js/index.js"></script>
+  <script src="./public/js/timer.js"></script>
+  <!-- <script src="./public/js/api.js"></script> -->
+</body>
+</html>
