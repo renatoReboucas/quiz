@@ -61,6 +61,7 @@ const createAnswers = (answers) => {
     delete item.answer_e
     delete item.answer_f
     // console.log("item", item);
+
     answersObj.innerHTML += `<li class="answers-item" id="answer_a" > ${item.answer_a} </li>`;
     answersObj.innerHTML += `<li class="answers-item" id="answer_b" > ${item.answer_b} </li>`;
     answersObj.innerHTML += `<li class="answers-item" id="answer_c" > ${item.answer_c} </li>`;
@@ -72,6 +73,7 @@ const createAnswers = (answers) => {
 const correctAnswers = () => {
   let answersItem = document.querySelectorAll(".answers-item");
   console.log("correctAnswers", answersItem);
+  console.log('entrou');
   // answersItem.addEventListener('click', () => {
   //   console.log(this);
   // })

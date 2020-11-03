@@ -1,6 +1,6 @@
 let timer;
 let tempo;
-let segundos = 10;
+let segundos = 40;
 
 
 const contador = () => {
