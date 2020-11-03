@@ -1,5 +1,3 @@
-
-
 let btnPlay = document.querySelector(".icon-play");
 let txtTempo = document.querySelector(".tempo");
 let question = document.querySelector(".question");
@@ -10,14 +8,12 @@ let spinner = document.querySelector(".spinner");
 
 let correct_answer = [];
 
-window.onload =  async () => {
- 
-}
+window.onload = async () => {};
 btnPlay.addEventListener("click", async () => {
   btnPlay.disabled = true;
   spinner.style.display = "block";
-  
-  const data = await api()
+
+  const data = await api();
 });
 
 const api = async () => {
@@ -32,52 +28,59 @@ const api = async () => {
         spinner.style.display = "none";
         createQuestion(res.data);
         contador();
-      },1000)
+      }, 1000);
     })
     .catch((error) => {
       console.log("DEU RUIM", error);
     });
 };
 
-const createQuestion = (dados) =>{
+const createQuestion = (dados) => {
   // for( const data of dados ){
-  const answers = dados.map( (item,index) => {
+  const answers = dados.map((item, index) => {
     // console.log(item);
     question.textContent = item.question;
     info.innerHTML += `<p class="category">Categoria: ${item.category}</p>`;
     info.innerHTML += `<p class="difficulty">Dificuldade: ${item.difficulty}</p>`;
     correct_answer = item.correct_answer;
     return item.answers;
-  } )
+  });
   // console.log("answers", answers);
   // console.log("correct_answer:", correct_answer);
-    // question.textContent = data.question;
-    createAnswers(answers);
-}
+  // question.textContent = data.question;
+  createAnswers(answers);
+};
 
 const createAnswers = (answers) => {
   // console.log('createAnswers',answers);
   for (const item of answers) {
-    delete item.answer_e
-    delete item.answer_f
+    delete item.answer_e;
+    delete item.answer_f;
     // console.log("item", item);
 
-    answersObj.innerHTML += `<li class="answers-item" id="answer_a" > ${item.answer_a} </li>`;
-    answersObj.innerHTML += `<li class="answers-item" id="answer_b" > ${item.answer_b} </li>`;
-    answersObj.innerHTML += `<li class="answers-item" id="answer_c" > ${item.answer_c} </li>`;
-    answersObj.innerHTML += `<li class="answers-item" id="answer_d" > ${item.answer_d} </li>`;
+    answersObj.innerHTML += `<li class="answers-item" id="answer_a" onclick="correctAnswers(event)"  > ${item.answer_a} </li>`;
+    answersObj.innerHTML += `<li class="answers-item" id="answer_b" onclick="correctAnswers(event)" > ${item.answer_b} </li>`;
+    answersObj.innerHTML += `<li class="answers-item" id="answer_c" onclick="correctAnswers(event)" > ${item.answer_c} </li>`;
+    answersObj.innerHTML += `<li class="answers-item" id="answer_d" onclick="correctAnswers(event)" > ${item.answer_d} </li>`;
   }
-  correctAnswers()
+  // correctAnswers()
 };
 
-const correctAnswers = () => {
-  let answersItem = document.querySelectorAll(".answers-item");
-  console.log("correctAnswers", answersItem);
-  console.log('entrou');
-  // answersItem.addEventListener('click', () => {
-  //   console.log(this);
-  // })
-}
+const correctAnswers = (event) => {
+  const element = event.target;
+  const answersItem = event.target.id;
+  const allElement = document.querySelector(".active");
 
+    element.classList.toggle("active");
+    //  if (allElement.classList.contains("active")) {
+    //    allElement.classList.remove("active");
+    //  } 
 
-
+  if (answersItem == correct_answer) {
+    alert("Parabens você acertou a resposta")
+    resetTimer()
+  } else {
+    alert("Não foi dessa vez");
+    resetTimer();
+  }
+};
