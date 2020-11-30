@@ -16,7 +16,7 @@ btnPlay.addEventListener("click", async () => {
   const data = await api();
 });
 
-const data = {
+const data = [{
     "id": 16,
     "question": "Qual o maior planeta do sistema solar?",
     "description": null,
@@ -47,7 +47,7 @@ const data = {
     ],
     "category": "Linux",
     "difficulty": "Easy"
-  }
+  }]
 
 const api = async () => {
   const token = "Edm1fbxVnvSA6OmU8SEZ3dgWvyLRI1XFMILg1F3d";
@@ -57,6 +57,7 @@ const api = async () => {
       `https://quizapi.io/api/v1/questions?apiKey=${token}&category=linux&difficulty=easy&limit=${limit}`,
     )
     .then((res) => {
+      // console.log(res.data);
       setTimeout(() => {
         spinner.style.display = "none";
         createQuestion(data);
@@ -70,8 +71,9 @@ const api = async () => {
 
 const createQuestion = (dados) => {
   // for( const data of dados ){
+    // console.log(dados);
   const answers = dados.map((item, index) => {
-    // console.log(item);
+    // console.log("item", item);
     question.textContent = item.question;
     info.innerHTML += `<p class="category">Categoria: ${item.category}</p>`;
     info.innerHTML += `<p class="difficulty">Dificuldade: ${item.difficulty}</p>`;
