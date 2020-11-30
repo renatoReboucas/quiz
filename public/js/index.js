@@ -16,6 +16,39 @@ btnPlay.addEventListener("click", async () => {
   const data = await api();
 });
 
+const data = {
+    "id": 16,
+    "question": "Qual o maior planeta do sistema solar?",
+    "description": null,
+    "answers": {
+      "answer_a": "Saturno",
+      "answer_b": "Júpiter",
+      "answer_c": "Urano",
+      "answer_d": "Marte",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  }
+
 const api = async () => {
   const token = "Edm1fbxVnvSA6OmU8SEZ3dgWvyLRI1XFMILg1F3d";
   const limit = 1;
@@ -26,7 +59,7 @@ const api = async () => {
     .then((res) => {
       setTimeout(() => {
         spinner.style.display = "none";
-        createQuestion(res.data);
+        createQuestion(data);
         contador();
       }, 1000);
     })
